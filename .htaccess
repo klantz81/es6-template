@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteOptions Inherit
+
+Options -Indexes
+
+RewriteRule ^admin/?$ admin.php [NC,L]
