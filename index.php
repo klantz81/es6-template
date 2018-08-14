@@ -5,28 +5,19 @@ require_once("config.php");
 ?><!DOCTYPE html>
 <html>
 <head>
-        <meta charset="utf-8">
-        <title>Site Template</title>
-        <meta name="keywords" content="">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="favicon.ico">
+	<meta charset="utf-8">
+	<title>Site Template</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="favicon.ico">
         
-        <link href="//fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
-        <script src="<?php echo WEB_ROOT; ?>dist/site.js"></script>
-        <script id="watcher">
-        var sc = document.createElement("script");
-        sc.type = "text/javascript";
-        sc.charset = "UTF-8";
-        sc.async = true;
-        sc.src = window.location.protocol + "//" + window.location.hostname + ":22280/socket.io/socket.io.js";
-        sc.onload = function() {
-                var socket = io(window.location.protocol + "//" + window.location.hostname + ":22280");
-                socket.on("file-changed", function(msg){
-                        window.location.reload();
-                });
-        }
-        document.getElementById("watcher").appendChild(sc);
+	<link href="//fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+	<script src="<?php echo WEB_ROOT; ?>dist/site.js"></script>
+	<script>
+	var app_server_key = <?php echo json_encode(APPLICATION_SERVER_KEY); ?>;
+	var web_root = <?php echo json_encode(WEB_ROOT); ?>;
+	site.loadWatcher();
         </script>
 </head>
 <body>
@@ -42,6 +33,7 @@ require_once("config.php");
         <p>Cras vestibulum mi neque, vitae vulputate arcu bibendum at. Vestibulum et porta nibh, non mattis libero. Aenean non nibh in dolor venenatis tincidunt vel interdum nibh. Fusce iaculis rutrum varius. Pellentesque massa sapien, sagittis sed mi nec, convallis viverra est. Curabitur molestie interdum risus, vel sodales ipsum. In ornare dapibus felis, eu bibendum nulla. Morbi egestas porta dignissim. Nam porta purus id felis tincidunt, nec pellentesque magna sagittis. Aenean molestie vitae elit sed pharetra. Suspendisse bibendum urna et accumsan mollis. Proin placerat, purus sodales sagittis dictum, risus lectus sagittis mauris, non gravida eros erat id urna. Quisque euismod nibh quis elit egestas, auctor vehicula ipsum facilisis.</p>
         <p>Quisque quis maximus dolor. Nulla at nibh nisi. Etiam at arcu non tortor tempus dapibus. Nullam scelerisque lorem eu quam tempor tempus. Ut mattis ut arcu quis semper. Integer vehicula leo diam. Phasellus consectetur lorem vel nunc commodo blandit. Aenean mollis erat non justo ultrices ultricies. Praesent aliquam purus nec dui condimentum, ut lacinia mauris feugiat. Ut placerat ex nulla, eget tristique nunc tincidunt id. Donec hendrerit lorem nec ex sodales sagittis. Proin lorem diam, tempus et ex non, molestie accumsan enim. Ut leo ipsum, volutpat eu hendrerit non, dictum consequat mi.</p>
         <p>Nam nec leo quis neque aliquam efficitur et vitae felis. Phasellus porttitor convallis magna, id tempor nibh venenatis id. Fusce quam massa, porttitor vitae malesuada facilisis, convallis vel velit. Nam velit nisi, pretium et massa ut, suscipit tempor quam. Sed id ex lacus. Nulla quis tincidunt enim. Ut malesuada vel elit eget molestie. Nulla tristique diam eu eros ultrices, in euismod metus dignissim. Aliquam eget libero eget arcu maximus lobortis. Aliquam convallis pharetra elit, sed pellentesque lectus dignissim at. Fusce rutrum fermentum dolor, non facilisis orci luctus et. Cras convallis tincidunt gravida. Cras ut diam libero. Nullam at rutrum lectus. Proin commodo elit sed nibh auctor, id lobortis ipsum gravida. Aliquam sit amet scelerisque dui, sit amet rutrum lectus.</p>
+        <a href="#" id="get-notified">Get Notified</a>
 </article>
 
 <footer>
