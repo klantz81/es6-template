@@ -123,16 +123,17 @@ export var swReg = null;
 
 function registerServiceWorker() {
 	if (navigator.serviceWorker) {
-		navigator.serviceWorker.register(web_root+'service-worker.js').then(function(registration) {
-			return navigator.serviceWorker.ready;
-			
-		}).then(function(registration) {
+		
+		navigator.serviceWorker.register(web_root+'service-worker.js');
+		
+		navigator.serviceWorker.ready.then(function(registration) {
 			swReg = registration;
 			
 		}).catch(function(err) {
 			console.log(err);
 			
 		});
+		
 	} else {
 
 	}
